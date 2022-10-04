@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/content_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="Ocurrio un inesperado, intentalo nuevamente"/>
+
+        <ImageView
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@android:drawable/ic_popup_sync"
+            app:tint="@color/teal_200" />
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:visibility="gone"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.example.shoppingapp.features.products.ProductsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:visibility="gone"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".presentation.product.list.ProductsFragment"
+        tools:listitem="@layout/view_item_art"
+        tools:visibility="visible" />
+
+</RelativeLayout>
