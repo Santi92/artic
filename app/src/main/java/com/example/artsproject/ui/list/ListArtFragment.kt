@@ -17,6 +17,10 @@ import com.example.artsproject.R
 import com.example.artsproject.databinding.FragmentListArtBinding
 import com.example.artsproject.ui.entity.toEntityUI
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.recyclerview.widget.RecyclerView
+
+
+
 
 
 @AndroidEntryPoint
@@ -52,8 +56,8 @@ class ListArtFragment : Fragment() {
     private fun initView(){
         val fragment = this
         with(binding!!.list) {
-
-            layoutManager = GridLayoutManager(context, 2)
+            val layoutManagerGrid =  GridLayoutManager(context, 2)
+            layoutManager = layoutManagerGrid
 
             adapter = ListArtRecyclerViewAdapter(
                 listOf(),
@@ -73,15 +77,41 @@ class ListArtFragment : Fragment() {
 
             }
 
+            var loading = true
+            var pastVisiblesItems: Int
+            var visibleItemCount: Int
+            var totalItemCount: Int
+
+            binding!!.list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    if (dy > 0) {
+                        Log.d("onScrolled", "Enter")//check for scroll down
+                        visibleItemCount = layoutManagerGrid.getChildCount()
+                        totalItemCount = layoutManagerGrid.getItemCount()
+                        pastVisiblesItems = layoutManagerGrid.findFirstVisibleItemPosition()
+                        android.util.Log.d("onScrolled", "load" + artsViewModel.uiState.value?.isLoadingMoreArt)
+                        if (artsViewModel.uiState.value?.isLoadingMoreArt == false) {
+                            Log.d("onScrolled", "load")
+
+                            if (visibleItemCount + pastVisiblesItems >= totalItemCount) {
+                                artsViewModel.onLoadNext()
+                            }
+                        }
+
+                    }
+                }
+            })
         }
     }
 
-    fun  initialiseViewModel(){
+    private fun  initialiseViewModel(){
         artsViewModel.uiState.observe(viewLifecycleOwner) { uiState ->
 
             binding!!.progressCircular.visibility = if (uiState.isLoading) View.VISIBLE else View.GONE
 
             binding!!.contentError.visibility  = if (uiState.isError) View.VISIBLE else View.GONE
+
+            binding!!.progressCircularMore.visibility  = if (uiState.isLoadingMoreArt) View.VISIBLE else View.GONE
 
             if(uiState.arts.isNotEmpty() && !uiState.isError ){
                 val adapter = binding!!.list.adapter
@@ -101,6 +131,8 @@ class ListArtFragment : Fragment() {
         binding!!.contentError.setOnClickListener {
             artsViewModel.onLoad()
         }
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

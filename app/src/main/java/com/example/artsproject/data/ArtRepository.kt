@@ -13,11 +13,11 @@ class ArtRepository @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
 ) {
 
-    suspend fun getArts(): Result<List<Art>> {
+    suspend fun getArts(page:String): Result<List<Art>> {
 
         return withContext(dispatcher) {
 
-            val result = api.getArts()
+            val result = api.getArts(page)
 
             return@withContext result.map { it.data }
         }

@@ -45,17 +45,38 @@
         tools:visibility="gone"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
-        android:name="com.example.shoppingapp.features.products.ProductsFragment"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:visibility="gone"
-        app:layoutManager="LinearLayoutManager"
-        tools:context=".presentation.product.list.ProductsFragment"
-        tools:listitem="@layout/view_item_art"
-        tools:visibility="visible" />
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:name="com.example.shoppingapp.features.products.ProductsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:visibility="gone"
+            app:layoutManager="LinearLayoutManager"
+            tools:context=".presentation.product.list.ProductsFragment"
+            tools:listitem="@layout/view_item_art"
+            tools:visibility="visible" />
+
+
+        <ProgressBar
+            android:id="@+id/progress_circular_more"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="visible"
+            android:gravity="center"
+            tools:visibility="visible"
+            android:layout_marginBottom="50dp"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>
