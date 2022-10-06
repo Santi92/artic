@@ -16,8 +16,6 @@ jobs:
           java-version: 11
       - name: Make Gradle executable
         run: chmod +x ./gradlew
-      - name: Check warning
-        run: ./gradlew build --warning-mode all --stacktrace
       - name: Build with Gradle
         run: ./gradlew build
       - name: Build Debug APK
