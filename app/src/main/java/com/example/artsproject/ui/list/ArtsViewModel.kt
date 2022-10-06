@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.artsproject.data.ArtRepository
+import com.example.artsproject.data.dto.Art
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -28,7 +29,7 @@ class ArtsViewModel @Inject constructor(
                 ArtsUIState(isLoading = true, isError = false, arts = listOf())
             )
 
-            val result = repository.getArts()
+            val result = repository.getArts(1.toString())
 
             result.fold(
                 onSuccess = {
@@ -43,6 +44,47 @@ class ArtsViewModel @Inject constructor(
                 }
             )
         }
+    }
+
+    private var currentPage = 2
+
+    fun onLoadNext() {
+
+
+        if(currentPage > 0){
+            viewModelScope.launch{
+
+                _uiState.postValue(
+                    _uiState.value!!.copy(isLoadingMoreArt = true, isError = false)
+                )
+
+                val result = repository.getArts(currentPage.toString())
+
+                result.fold(
+                    onSuccess = {result->
+
+                        if(result.isEmpty()){
+                            currentPage = 0
+                        }else {
+                            currentPage ++
+                        }
+
+                        val list = _uiState.value!!.arts
+
+                        _uiState.postValue(
+                            _uiState.value!!.copy(isLoadingMoreArt = false, isError = false, arts = list + result )
+                        )
+                    },
+                    onFailure = {
+                        _uiState.postValue(
+                            ArtsUIState(isLoadingMoreArt = false, isError = true)
+                        )
+                    }
+                )
+            }
+        }
+
+
     }
 
 }
