@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/escor/AndroidStudioProjects/ArtsProject/app/src/main/res/layout/activity_main.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/escor/AndroidStudioProjects/ArtsProject/app/src/main/res/layout/fragment_detial_art.xml" value="0.40520833333333334" />
         <entry key="..\:/Users/escor/AndroidStudioProjects/ArtsProject/app/src/main/res/layout/fragment_list_art.xml" value="0.20260416666666667" />
-        <entry key="..\:/Users/escor/AndroidStudioProjects/ArtsProject/app/src/main/res/layout/view_item_art.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/escor/AndroidStudioProjects/ArtsProject/app/src/main/res/layout/view_image_art.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/escor/AndroidStudioProjects/ArtsProject/app/src/main/res/layout/view_item_art.xml" value="0.33" />
       </map>
     </option>
   </component>
