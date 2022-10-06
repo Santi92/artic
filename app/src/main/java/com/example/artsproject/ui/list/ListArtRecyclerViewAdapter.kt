@@ -12,10 +12,9 @@ import com.bumptech.glide.Glide
 import com.example.artsproject.data.dto.Art
 import com.example.artsproject.databinding.ViewItemArtBinding
 
-
 class ListArtRecyclerViewAdapter(
     private var values: List<Art>,
-    private var onItemClicked: ((product: Art) -> Unit)
+    private var onItemClicked: ((product: Art, imag: ImageView) -> Unit)
 ) : RecyclerView.Adapter<ListArtRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,6 +33,7 @@ class ListArtRecyclerViewAdapter(
             holder.idView.text = id.toString()
             holder.description.text = medium_display ?: ""
 
+            holder.imageView.transitionName =  id.toString()
 
             Glide
                 .with(holder.contentView.context)
@@ -42,7 +42,7 @@ class ListArtRecyclerViewAdapter(
                 .into(holder.imageView)
         }
 
-        holder.contentView.setOnClickListener { onItemClicked.invoke(product) }
+        holder.contentView.setOnClickListener { onItemClicked.invoke(product, holder.imageView ) }
 
     }
 

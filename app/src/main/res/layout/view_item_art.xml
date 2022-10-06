@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:id="@+id/card_film"
+    android:padding="0dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/default_spacing_micro"
+    app:cardElevation="4dp"
+    app:cardPreventCornerOverlap="false">
+
+<LinearLayout
+    android:id="@+id/item_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="8dp">
+    >
 
     <ImageView
         android:id="@+id/item_image"
@@ -27,6 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:maxLines="2"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
@@ -35,9 +49,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:maxLines="3"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
             android:textAppearance="?attr/textAppearanceListItem" />
 
     </LinearLayout>
 
 
 </LinearLayout>
+</androidx.cardview.widget.CardView>

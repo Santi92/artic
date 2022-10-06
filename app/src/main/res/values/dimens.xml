@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_margin">16dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="text_size_small">15sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_big">17sp</dimen>
+    <dimen name="text_size_mid">16sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_code">22sp</dimen>
+    <dimen name="text_size_extra_large">36sp</dimen>
+    <dimen name="default_margin_dialog_promo">40dp</dimen>
+    <dimen name="default_margin_vertical">32dp</dimen>
+    <dimen name="default_spacing_major">16dp</dimen>
+    <dimen name="default_spacing_medium">12dp</dimen>
+    <dimen name="default_spacing_big">20dp</dimen>
+    <dimen name="default_spacing_minor">8dp</dimen>
+    <dimen name="default_spacing_micro">4dp</dimen>
+    <dimen name="default_spacing_nano">2dp</dimen>
+    <dimen name="size_reserve_item">28dp</dimen>
+
+    <dimen name="text_size_seats">5sp</dimen>
+
+    <dimen name="padding_common">8dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_min">2dp</dimen>
+    <dimen name="padding_medium">@dimen/padding_common</dimen>
+    <dimen name="padding_normal">12dp</dimen>
+    <dimen name="padding_extra_big">32dp</dimen>
+
+    <dimen name="progress_view_radius">6dp</dimen>
+
+    <dimen name="width_edittext">250dp</dimen>
+    <dimen name="width_lab_login">170dp</dimen>
+    <dimen name="size_normal_text">17sp</dimen>
+    <dimen name="text_size_register">16sp</dimen>
+    <dimen name="text_size_signup_here">14sp</dimen>
+    <dimen name="size_small_text">12sp</dimen>
+    <dimen name="button_width">80dp</dimen>
+    <dimen name="input_card_height">60dp</dimen>
+    <dimen name="height_film_item">180dp</dimen>
+    <dimen name="width_film_item">120dp</dimen>
+    <dimen name="size_banner_home">90dp</dimen>
+    <dimen name="height_film_share">150dp</dimen>
+    <dimen name="width_film_share">120dp</dimen>
+    <dimen name="text_small">8sp</dimen>
 </resources>
